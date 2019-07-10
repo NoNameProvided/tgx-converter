@@ -1,6 +1,6 @@
 {
   "name": "tgx-converter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple TGX to PNG, JPG, BMP converter.",
   "author": "Attila Olah",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "build:clean": "rimraf ./build",
     "build:tsc:incremental": "tsc --project ./tsconfig.json",
     "build:tsc:prod": "tsc --project ./tsconfig.prod.json",
-    "build:copy": "cpy src/bin build/bin && cpy package.json build && cpy LICENSE build",
+    "build:copy": "cpy src/bin build/bin && cpy package.json build && cpy LICENSE build cpy README.md build",
     "start:dev": "npm run build && tsc-watch",
     "prettier:format": "prettier --write ./src/**/*.ts ./src/*.ts",
     "prettier:check": "prettier --check ./src/**/*.ts ./src/*.ts",

@@ -17,7 +17,18 @@ npm install -g tgx-converter
 #### Via CLI
 
 ```
-npx tgxc --source /path/to/source/files/folder --output /path/to/destination/folder --loglevel INFO
+$ tgxc --help
+
+  USAGE
+
+      $ tgxc [--help] --source /some/path/to/folder --output /path/to/destination/folder
+
+  OPTIONS
+      --help            Shows this help message
+      --source          Source folder which contains the TGX files
+      --output          Output directory for generated JPEG/PNG/BMP files
+      --format          PNG | JPG | BMP
+      --log-level       VERBOSE | INFO | WARNING | ERROR
 ```
 
 #### Via API

@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 'lts/*'
+install:
+  - npm ci
+script:
+  - npm run prettier:check
+  - npm run lint:check
+  - npm run test:ci
+  - npm run build
+before_deploy:
+  - cp LICENSE build/LICENSE
+  - cp package.json build/package.json
+  - cp -R src/bin/ build/bin
+  - cd build
+# deploy:
+#   provider: npm
+#   email: attila.olah@outlook.com
+#   api_key:
+#     secure: $NPM_PUBLISH_TOKEN
+#   on:
+#     branch: master
+#   skip_cleanup: true

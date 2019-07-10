@@ -1,0 +1,11 @@
+# Configuration file for Prettier
+# Used before every commit to format the code-style
+
+printWidth: 120
+tabWidth: 2
+useTabs: false
+semi: true
+singleQuote: true
+trailingComma: es5
+bracketSpacing: true
+arrowParens: avoid

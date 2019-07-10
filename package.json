@@ -1,0 +1,78 @@
+{
+  "name": "tgx-converter",
+  "version": "0.1.0",
+  "description": "A simple TGX to PNG, JPG, BMP converter.",
+  "author": "Attila Olah",
+  "license": "MIT",
+  "main": "lib.js",
+  "bin": {
+    "tgxc": "bin/tgxc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoNameProvided/tgx-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NoNameProvided/tgx-converter/issues"
+  },
+  "keywords": [
+    "tgx",
+    "converter",
+    "stronghold",
+    "crusaders"
+  ],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:tsc:prod && npm run build:copy",
+    "build:clean": "rimraf ./build",
+    "build:tsc:incremental": "tsc --project ./tsconfig.json",
+    "build:tsc:prod": "tsc --project ./tsconfig.prod.json",
+    "build:copy": "cpy src/bin build/bin && cpy package.json build && cpy LICENSE build",
+    "start:dev": "npm run build && tsc-watch",
+    "prettier:format": "prettier --write ./src/**/*.ts ./src/*.ts",
+    "prettier:check": "prettier --check ./src/**/*.ts ./src/*.ts",
+    "lint:fix": "eslint --max-warnings 0 src/**/*.ts --fix",
+    "lint:check": "eslint --max-warnings 0 src/**/*.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.md": [
+      "prettier --parser markdown --write",
+      "git add"
+    ],
+    "*.ts": [
+      "prettier --parser typescript --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "arg": "^4.1.0",
+    "jimp": "0.6.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "12.6.2",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "cpy-cli": "^2.0.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.1.0",
+    "prettier": "^1.18.2",
+    "rimraf": "2.6.3",
+    "ts-jest": "^24.0.2",
+    "tsc-watch": "^2.2.1",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
+}

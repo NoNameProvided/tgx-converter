@@ -1,6 +1,5 @@
 import { Color } from './color.model';
-
-import { Position } from '../interfaces/position.interface';
+import { Position } from '../interfaces';
 
 export class Pixel {
   private x: number = 0;

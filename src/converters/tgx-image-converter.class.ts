@@ -1,19 +1,18 @@
-import { Pixel } from '../models/pixel.model';
-import { Color } from '../models/color.model';
-import { Logger } from '../helpers/logger.util';
-import { TgxToken } from '../interfaces/tgx-token.interface';
-import { TgxTokenType } from '../enums/tgx-token-type.enum';
-import { ImageDescriptor } from '../image-descriptor.class';
+import { Pixel, Color } from '../models';
+import { Logger } from '../helpers';
+import { TgxToken } from '../interfaces';
+import { TgxTokenType } from '../enums';
+import { DecodedImage } from '../models/decoded-image.model';
 
 export class TgxImageConverter {
   /**
    * Decodes the image data of a tgx file.
    * @param buffer buffer containing the tgx image
    */
-  public static async decodeImage(buffer: Buffer, fileName: string): Promise<ImageDescriptor> {
+  public static async decodeImage(buffer: Buffer, fileName: string): Promise<DecodedImage> {
     Logger.debug(`[TgxImageConverter][decodeImage] Starting to decode ${fileName}.`);
 
-    const imageDescriptor: ImageDescriptor = new ImageDescriptor();
+    const imageDescriptor: DecodedImage = new DecodedImage();
     const { width, height } = TgxImageConverter.extractImageDimension(buffer);
 
     imageDescriptor.name = fileName;

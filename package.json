@@ -1,6 +1,6 @@
 {
   "name": "tgx-converter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple TGX to PNG, JPG, BMP converter.",
   "author": "Attila Olah",
   "license": "MIT",

@@ -1,4 +1,4 @@
-import { RgbaColor } from '../interfaces/rgba-color.interface';
+import { RgbaColor } from '../interfaces';
 
 /**
  * Universal RGBA color definition.

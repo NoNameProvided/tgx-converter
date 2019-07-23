@@ -1,9 +1,8 @@
-import { FileHelper } from './helpers/file-reader.util';
-import { TgxImageConverter } from './converters/tgx-image-converter.class';
-import { ImageConverter } from './converters/image-conveter.class';
-import { TargetImageFormats } from './enums/target-image-formats.enum';
-import { Logger } from './helpers/logger.util';
 import * as path from 'path';
+
+import { FileHelper, Logger } from './helpers';
+import { ImageConverter, TgxImageConverter } from './converters';
+import { TargetImageFormats } from './enums';
 import { FILE_EXTENSIONS } from './constants/file-extensions.constant';
 
 export class TgxConverter {

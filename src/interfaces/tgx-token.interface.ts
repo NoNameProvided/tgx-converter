@@ -1,4 +1,4 @@
-import { TgxTokenType } from '../enums/tgx-token-type.enum';
+import { TgxTokenType } from '../enums';
 
 /**
  * The default building block of a TGX image.

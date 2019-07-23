@@ -1,9 +1,8 @@
 import { timestamp } from '../utils/console-timestamp.util';
-
-import { LogLevel } from '../enums/log-level.enum';
+import { LogLevel } from '../enums';
 
 export class Logger {
-  public static logLevel: LogLevel = LogLevel.ERROR;
+  public static logLevel: LogLevel = LogLevel.INFO;
 
   private static writeToConsole(
     message: string,

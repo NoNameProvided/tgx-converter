@@ -1,5 +1,4 @@
-import { TargetImageFormats } from '../enums/target-image-formats.enum';
-import { SourceImageFormats } from '../enums/source-image-formats.enum';
+import { TargetImageFormats, SourceImageFormats } from '../enums';
 
 export const FILE_EXTENSIONS: { [key: string]: string } = {
   [TargetImageFormats.JPG]: 'jpg',

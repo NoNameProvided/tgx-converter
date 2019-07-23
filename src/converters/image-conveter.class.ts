@@ -1,21 +1,20 @@
 import { promisify } from 'util';
 import * as Jimp from 'jimp';
 
-import { Pixel } from '../models/pixel.model';
-import { Logger } from '../helpers/logger.util';
-import { Color } from '../models/color.model';
-import { TargetImageFormats } from '../enums/target-image-formats.enum';
-import { ImageDescriptor } from '../image-descriptor.class';
+import { Pixel, Color } from '../models';
+import { Logger } from '../helpers';
+import { TargetImageFormats } from '../enums';
+import { DecodedImage } from '../models/decoded-image.model';
 
 export class ImageConverter {
   /**
    * Decodes the image data of a supported image file.
    * @param buffer buffer containing the png image
    */
-  public static async decodeImage(buffer: Buffer, fileName: string): Promise<ImageDescriptor> {
+  public static async decodeImage(buffer: Buffer, fileName: string): Promise<DecodedImage> {
     Logger.debug(`[ImageConverter][decodeImage] Starting to decode ${fileName}.`);
 
-    const imageDescriptor: ImageDescriptor = new ImageDescriptor();
+    const imageDescriptor: DecodedImage = new DecodedImage();
 
     imageDescriptor.name = fileName;
 
@@ -41,7 +40,7 @@ export class ImageConverter {
   /**
    * Encodes the image data to the the specified file.
    */
-  public static async encodeImage(imageDescriptor: ImageDescriptor, format: TargetImageFormats): Promise<Buffer> {
+  public static async encodeImage(imageDescriptor: DecodedImage, format: TargetImageFormats): Promise<Buffer> {
     Logger.debug(`[TargetImageConverter][encodeImage] Starting to encode image data to ${format} format.`);
     const image: Jimp = new Jimp(imageDescriptor.width, imageDescriptor.height, 0x00000000);
 

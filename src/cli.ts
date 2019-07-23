@@ -1,11 +1,22 @@
 import * as arg from 'arg';
 import * as chalk from 'chalk';
 
-import { HELP_MESSAGE } from './cli/help-mesage.constant';
-import { Logger } from './helpers/logger.util';
-import { LogLevel } from './enums/log-level.enum';
-import { TargetImageFormats } from './enums/target-image-formats.enum';
+import { Logger } from './helpers';
+import { LogLevel, TargetImageFormats } from './enums';
 import { TgxConverter } from './lib';
+
+export const HELP_MESSAGE = chalk.default`
+  {bold USAGE}
+
+      {dim $} {bold tgxc} [--help] --source {underline /some/path/to/folder} --output {underline /path/to/destination/folder}
+
+  {bold OPTIONS}
+      --help            Shows this help message
+      --source          Source folder which contains the TGX files
+      --output          Output directory for generated JPEG/PNG/BMP files 
+      --format          {underline PNG} | {underline JPG} | {underline BMP}          
+      --log-level       {underline VERBOSE} | {underline INFO} | {underline WARNING} | {underline ERROR}                
+`;
 
 const args = arg({
   '--help': Boolean,

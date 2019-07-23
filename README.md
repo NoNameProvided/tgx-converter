@@ -4,7 +4,7 @@ A simple TGX to PNG, JPG, BMP converter.
 
 > **What is the TGX file format?**
 >
-> The `.tgx` file format is used in the [Stronghold](schd-official-page) series to store non-animated image files.
+> The `.tgx` file format is used in the [Stronghold][schd-official-page] series to store non-animated image files.
 
 ### Installation
 

@@ -29,7 +29,7 @@ export class TgxConverter {
       const encodedPngImageBuffer = await ImageConverter.encodeImage(imageDescriptor, format);
 
       await FileHelper.write(
-        `${outputPath}\\${imageDescriptor.name}.${FILE_EXTENSIONS[format]}`,
+        `${outputPath}${path.sep}${imageDescriptor.name}.${FILE_EXTENSIONS[format]}`,
         encodedPngImageBuffer
       );
     }

@@ -73,7 +73,7 @@
     "rimraf": "2.6.3",
     "ts-jest": "24.0.2",
     "tsc-watch": "2.2.1",
-    "tslint": "5.18.0",
+    "tslint": "5.20.1",
     "typescript": "3.5.3"
   }
 }

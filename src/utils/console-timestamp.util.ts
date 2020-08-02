@@ -43,13 +43,7 @@ export function timestamp(format: string, time?: Date | number): string {
   out = out.replace('ss', fixDigits(date.getSeconds(), 2));
   out = out.replace('iii', fixDigits(date.getMilliseconds(), 3));
   out = out.replace('YYYY', fixDigits(date.getFullYear(), 4));
-  out = out.replace(
-    'YY',
-    date
-      .getFullYear()
-      .toString()
-      .slice(-2)
-  );
+  out = out.replace('YY', date.getFullYear().toString().slice(-2));
   out = out.replace('MM', fixDigits(date.getMonth() + 1, 2));
   out = out.replace('DD', fixDigits(date.getDate(), 2));
   return out;

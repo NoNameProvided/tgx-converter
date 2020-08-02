@@ -25,6 +25,7 @@ const args = arg({
   '--format': String,
   '--log-level': String,
 });
+const targetFileFormat: keyof typeof TargetImageFormats = args['--format'] as keyof typeof TargetImageFormats;
 
 if (args['--help']) {
   console.error(HELP_MESSAGE);
@@ -49,9 +50,6 @@ if (args['--log-level']) {
 }
 
 if (args['--format']) {
-  /* eslint-disable-next-line */
-  const targetFileFormat: keyof typeof TargetImageFormats = args['--format'] as any;
-
   if (!TargetImageFormats[targetFileFormat]) {
     Logger.error(chalk.default`The ${targetFileFormat} value is not valid for the {bold --format} parameter!`);
     process.exit(2);
@@ -62,7 +60,7 @@ TgxConverter.convertTgxToImage(
   args['--source'] as string,
   args['--output'] as string,
   /* eslint-disable-next-line */
-  TargetImageFormats[args['--format'] as any] as TargetImageFormats
+  TargetImageFormats[targetFileFormat] as TargetImageFormats
 ).catch(error => {
   Logger.error('Error during the file transformation!');
   Logger.error(error);

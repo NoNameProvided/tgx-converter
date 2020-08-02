@@ -70,7 +70,7 @@
     "jest": "24.8.0",
     "lint-staged": "9.1.0",
     "prettier": "1.19.1",
-    "rimraf": "2.6.3",
+    "rimraf": "2.7.1",
     "ts-jest": "24.3.0",
     "tsc-watch": "2.2.1",
     "tslint": "5.20.1",

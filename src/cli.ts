@@ -5,7 +5,7 @@ import { Logger } from './helpers';
 import { LogLevel, TargetImageFormats } from './enums';
 import { TgxConverter } from './lib';
 
-export const HELP_MESSAGE = chalk.default`
+export const HELP_MESSAGE = chalk`
   {bold USAGE}
 
       {dim $} {bold tgxc} [--help] --source {underline /some/path/to/folder} --output {underline /path/to/destination/folder}
@@ -33,7 +33,7 @@ if (args['--help']) {
 }
 
 if (!args['--source'] || !args['--output']) {
-  Logger.error(chalk.default`The {bold --source} and {bold --output} parameters are required!`);
+  Logger.error(chalk`The {bold --source} and {bold --output} parameters are required!`);
   process.exit(2);
 }
 
@@ -42,7 +42,7 @@ if (args['--log-level']) {
   const logLevel: keyof typeof LogLevel = args['--log-level'] as any;
 
   if (!LogLevel[logLevel]) {
-    Logger.error(chalk.default`The ${logLevel} value is not valid for the {bold --log-level} parameter!`);
+    Logger.error(chalk`The ${logLevel} value is not valid for the {bold --log-level} parameter!`);
     process.exit(2);
   }
 
@@ -51,7 +51,7 @@ if (args['--log-level']) {
 
 if (args['--format']) {
   if (!TargetImageFormats[targetFileFormat]) {
-    Logger.error(chalk.default`The ${targetFileFormat} value is not valid for the {bold --format} parameter!`);
+    Logger.error(chalk`The ${targetFileFormat} value is not valid for the {bold --format} parameter!`);
     process.exit(2);
   }
 }

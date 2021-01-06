@@ -1,0 +1,31 @@
+name: CI
+on: push
+jobs:
+  checks:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm run prettier:check
+      - run: npm run lint:check
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm install codecov -g
+      - run: npm run test:ci
+      - run: codecov -f ./coverage/clover.xml -t ${{ secrets.CODECOV_TOKEN }} --commit=$GITHUB_SHA --branch=${GITHUB_REF##*/}
+  build:
+    name: Build
+    needs: [tests, checks]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm run build

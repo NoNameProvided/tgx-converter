@@ -46,12 +46,12 @@ export class ImageConverter {
 
     imageDescriptor.pixels.forEach(pixel => {
       image.setPixelColor(
-        Jimp.rgbaToInt(pixel.color.red, pixel.color.green, pixel.color.blue, 255, () => {}),
+        Jimp.rgbaToInt(pixel.color.red, pixel.color.green, pixel.color.blue, 255),
         pixel.position.x,
         pixel.position.y
       );
     });
 
-    return await promisify(image.getBuffer).bind(image)(format);
+    return await promisify(image.getBuffer.bind(image))(format);
   }
 }

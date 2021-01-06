@@ -57,8 +57,8 @@ if (args['--format']) {
 }
 
 TgxConverter.convertTgxToImage(
-  args['--source'] as string,
-  args['--output'] as string,
+  args['--source'],
+  args['--output'],
   /* eslint-disable-next-line */
   TargetImageFormats[targetFileFormat] as TargetImageFormats
 ).catch(error => {

@@ -9,6 +9,7 @@ export class TgxImageConverter {
    * Decodes the image data of a tgx file.
    * @param buffer buffer containing the tgx image
    */
+  /* eslint-disable-next-line @typescript-eslint/require-await */
   public static async decodeImage(buffer: Buffer, fileName: string): Promise<DecodedImage> {
     Logger.debug(`[TgxImageConverter][decodeImage] Starting to decode ${fileName}.`);
 

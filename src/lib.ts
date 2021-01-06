@@ -22,7 +22,7 @@ export class TgxConverter {
 
     Logger.log(`Processing ${tgxFilePaths.length} file at ${sourcePath}`);
 
-    for (let tgxFileName of tgxFilePaths) {
+    for (const tgxFileName of tgxFilePaths) {
       Logger.log(`[TgxConverter][convertTgxToImage] Converting ${tgxFileName} to ${format}...`);
       const tgxFileBuffer = await FileHelper.read(path.join(sourcePath, tgxFileName));
       const imageDescriptor = await TgxImageConverter.decodeImage(tgxFileBuffer, path.basename(tgxFileName));

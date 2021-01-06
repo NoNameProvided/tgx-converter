@@ -28,7 +28,7 @@ function fixDigits(input: number, length: number): string {
   let transformed = input.toString();
 
   while (transformed.length < length) {
-    transformed = '0' + input;
+    transformed = '0' + ((input as unknown) as string);
   }
 
   return transformed;

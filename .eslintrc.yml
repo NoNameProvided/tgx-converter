@@ -11,7 +11,6 @@ extends:
   - 'plugin:@typescript-eslint/recommended'
   - 'plugin:@typescript-eslint/recommended-requiring-type-checking'
   - 'prettier'
-  - 'prettier/@typescript-eslint'
 rules:
   '@typescript-eslint/explicit-member-accessibility': off
   '@typescript-eslint/restrict-template-expressions': off
